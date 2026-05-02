@@ -1,0 +1,31 @@
+[package]
+name = "ticketdaddy-nft-receipt"
+version = "0.1.0"
+description = "TicketDaddy NFT Receipt Program for Solana (Metaplex Compatible)"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/ticketdaddy/ticketdaddy"
+readme = "README.md"
+keywords = ["solana", "nft", "metaplex", "ticketing", "anchor"]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "ticketdaddy_nft_receipt"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build", "mpl-token-metadata/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+anchor-spl = "0.30.1"
+mpl-token-metadata = "4.1.2"
+
+[dev-dependencies]
+solana-program-test = "~1.18"
+solana-sdk = "~1.18"
+tokio = { version = "1.36", features = ["full"] }
